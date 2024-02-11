@@ -15,6 +15,5 @@ public class HomePageTests extends BaseTest {
         loginPage.assertSuccessfulLogin();
         String playlistName = "BrandNew";
         homePage.createNewPlaylist(playlistName);
-
     }
 }
