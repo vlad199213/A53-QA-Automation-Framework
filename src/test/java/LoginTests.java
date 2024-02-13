@@ -13,5 +13,4 @@ public class LoginTests extends BaseTest {
         loginPage.loginWithValidCredentials();
         Assert.assertTrue(loginPage.getAvatarIcon().isDisplayed());
     }
-
 }

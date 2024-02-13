@@ -17,7 +17,6 @@ public class BaseTest {
     public  WebDriver driver = null;
     public  String url = null;
     public  WebDriverWait wait = null;
-
     public  Actions actions = null;
 
 
