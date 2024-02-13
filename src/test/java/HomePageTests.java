@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -12,5 +13,6 @@ public class HomePageTests extends BaseTest {
         loginPage.loginWithValidCredentials();
         String playlistName = "BrandNew";
         homePage.createNewPlaylist(playlistName);
+        Assert.assertTrue(homePage.getPlaylistCreatedPopUp().isDisplayed());
     }
 }

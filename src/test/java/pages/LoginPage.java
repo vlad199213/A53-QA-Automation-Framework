@@ -41,6 +41,8 @@ public class LoginPage extends BasePage {
         provideEmail("vlad.kashchuk@testpro.io");
         providePassword("Q4sNKxVN");
         clickSubmit();
-        Assert.assertTrue(findElement(avatarIcon).isDisplayed());
+    }
+    public WebElement getAvatarIcon () {
+        return avatarIcon;
     }
 }

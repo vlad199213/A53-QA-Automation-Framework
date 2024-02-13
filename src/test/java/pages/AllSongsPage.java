@@ -16,13 +16,13 @@ public class AllSongsPage extends BasePage{
 
     public void playFirstSong() {
         actions.doubleClick(allSongs.get(0)).perform();
-        Assert.assertTrue(findElement(visualizer).isDisplayed());
     }
 
     public void playLastSong() {
         actions.doubleClick(allSongs.get(allSongs.size()-1)).perform();
-        Assert.assertTrue(findElement(visualizer).isDisplayed());
     }
-
+    public WebElement getVisualizer() {
+        return visualizer;
+    }
 
 }

@@ -35,19 +35,32 @@ public class HomePage extends BasePage{
     @FindBy(css = "[name='create-simple-playlist-form'] input")
     private WebElement playlistNameInputField;
     @FindBy(css = ".success.show")
-    private WebElement createdPlaylist;
+    private WebElement playlistCreatedPopUp;
 
     public void createNewPlaylist (String playlistName) {
-        findElement(createNewPlaylistBtn).click();
-        findElement(newPlaylistContextMenu).click();
-        WebElement playlistNameInput = findElement(playlistNameInputField);
+        createNewPlaylistBtn();
+        //findElementByLocator(createNewPlaylistBtn).click();
+        findElementByLocator(newPlaylistContextMenu).click();
+        WebElement playlistNameInput = findElementByLocator(playlistNameInputField);
         playlistNameInput.sendKeys(playlistName);
         playlistNameInput.sendKeys(Keys.RETURN);
-        Assert.assertTrue(createdPlaylist.isDisplayed());
     }
 
     public void goToAllSongs () {
-        findElement(allSongs).click();
+        findElementByLocator(allSongs).click();
     }
 
+    public WebElement getPlaylistCreatedPopUp () {
+        return playlistCreatedPopUp;
+    }
+
+    public void createNewPlaylistBtn() {
+        findElementByLocator(createNewPlaylistBtn);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        findElementByLocator(createNewPlaylistBtn).click();
+    }
 }
