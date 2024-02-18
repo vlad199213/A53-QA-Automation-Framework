@@ -18,6 +18,7 @@ dependencies {
 test {
     useTestNG() {
         suites "src/test/resources/POM.xml"
+        systemProperty "browser", System.getProperty("browser")
     }
 }
 
