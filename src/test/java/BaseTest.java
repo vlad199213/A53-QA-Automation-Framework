@@ -59,10 +59,10 @@ public class BaseTest {
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 return driver = new EdgeDriver();
             default:
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                return driver = new ChromeDriver(chromeOptions);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(options);
+                return driver;
         }
     }
 }
