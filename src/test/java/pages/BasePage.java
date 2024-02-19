@@ -18,12 +18,20 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected Actions actions;
+    protected FluentWait<WebDriver> fluentWait;
 
     public BasePage (WebDriver givenDriver) {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
+        fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
+    }
+    protected WebElement fluentWaitForElementToBeClickable(WebElement webElement) {
+        return fluentWait
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(ElementClickInterceptedException.class)
+                .until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public WebElement findElementByLocator(WebElement webElement) {

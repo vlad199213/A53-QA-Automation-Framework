@@ -38,9 +38,8 @@ public class HomePage extends BasePage{
     private WebElement playlistCreatedPopUp;
 
     public void createNewPlaylist (String playlistName) {
-        createNewPlaylistBtn();
-        //findElementByLocator(createNewPlaylistBtn).click();
-        findElementByLocator(newPlaylistContextMenu).click();
+        fluentWaitForElementToBeClickable(createNewPlaylistBtn).click();
+        fluentWaitForElementToBeClickable(newPlaylistContextMenu).click();
         WebElement playlistNameInput = findElementByLocator(playlistNameInputField);
         playlistNameInput.sendKeys(playlistName);
         playlistNameInput.sendKeys(Keys.RETURN);
@@ -54,13 +53,4 @@ public class HomePage extends BasePage{
         return playlistCreatedPopUp;
     }
 
-    public void createNewPlaylistBtn() {
-        findElementByLocator(createNewPlaylistBtn);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        findElementByLocator(createNewPlaylistBtn).click();
-    }
 }
